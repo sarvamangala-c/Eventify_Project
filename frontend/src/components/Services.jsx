@@ -11,7 +11,7 @@ const Services = () => {
       url: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop",
       title: "Cultural Festivals",
       description: "Celebrate diversity with vibrant performances, art exhibitions, and cultural showcases that bring communities together.",
-      pricing: "Tickets starting from $29",
+      pricing: "Tickets starting from Rs.599",
       details: [
         "Multiple cultural performances",
         "Food stalls from different cuisines",
@@ -24,12 +24,12 @@ const Services = () => {
       url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop",
       title: "Tech Events & Hackathons",
       description: "Foster innovation with coding competitions, tech workshops, and networking events for future tech leaders.",
-      pricing: "Early bird tickets from $49",
+      pricing: "Early bird tickets from Rs.499",
       details: [
         "24-hour hackathon challenges",
         "Tech workshops and seminars",
         "Networking sessions",
-        "Prizes worth $10,000"
+        "Prizes worth Rs.10,000"
       ]
     },
     {
@@ -37,7 +37,7 @@ const Services = () => {
       url: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
       title: "Concerts & Live Shows",
       description: "Experience unforgettable performances with state-of-the-art sound and lighting in perfectly curated venues.",
-      pricing: "Premium tickets from $79",
+      pricing: "Premium tickets from Rs.799",
       details: [
         "Featured artists lineup",
         "VIP meet and greet",
@@ -50,7 +50,7 @@ const Services = () => {
       url: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2070&auto=format&fit=crop",
       title: "Birthday Celebrations",
       description: "Create magical moments with customized themes, entertainment, and picture-perfect decorations.",
-      pricing: "Packages starting from $299",
+      pricing: "Packages starting from Rs.499",
       details: [
         "Customized theme decoration",
         "Professional photography",
@@ -63,7 +63,7 @@ const Services = () => {
       url: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop",
       title: "Private Parties",
       description: "Transform any occasion into an exclusive gathering with personalized catering, decor, and entertainment solutions.",
-      pricing: "Custom quotes available",
+      pricing: "Premium tickets from Rs.799",
       details: [
         "Venue selection assistance",
         "Custom menu planning",
@@ -76,7 +76,7 @@ const Services = () => {
       url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2070&auto=format&fit=crop",
       title: "Wedding Events",
       description: "Turn your dream wedding into reality with our comprehensive planning, from intimate ceremonies to grand receptions.",
-      pricing: "Packages from $999",
+      pricing: "Packages from Rs.999",
       details: [
         "Complete wedding planning",
         "Decoration and flowers",
