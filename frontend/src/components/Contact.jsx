@@ -4,37 +4,36 @@ import toast from "react-hot-toast";
 import "./Contact.css";
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
-  const handleSendMessage = async (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios
-      .post(
-        "http://localhost:4000/api/v1/message/send",
-        {
-          name,
-          email,
-          subject,
-          message,
-        },
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "application/json" },
-        }
-      )
-      .then((res) => {
-        toast.success(res.data.message);
-        setName("");
-        setEmail("");
-        setMessage("");
-        setSubject("");
-      })
-      .catch((error) => {
-        toast.error(error.response.data.message);
+    try {
+      await axios.post('/api/contact', formData);
+      // Clear form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
       });
+      toast.success('Message sent successfully!');
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.');
+    }
   };
 
   return (
@@ -67,39 +66,67 @@ const Contact = () => {
             />
           </div>
           <div className="contact-form item">
-            <form onSubmit={handleSendMessage}>
+            <form onSubmit={handleSubmit} className="contact-form">
               <h2>CONTACT</h2>
-              <div>
+              <div className="form-row">
+                <div className="form-field">
+                  <label className="form-label">Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="form-input"
+                    placeholder="Name"
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">Email:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="form-input"
+                    placeholder="E-mail"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div className="form-field">
+                <label className="form-label">Subject</label>
                 <input
                   type="text"
-                  placeholder="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="Subject"
                   required
                 />
               </div>
-              <input
-                type="text"
-                placeholder="Subject"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                required
-              />
-              <textarea
-                rows={10}
-                placeholder="Message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              />
-              <button type="submit">Send</button>
+              
+              <div className="form-field">
+                <label className="form-label">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="Message"
+                  required
+                />
+              </div>
+
+              <button type="submit" className="send-button">
+                Send
+              </button>
             </form>
           </div>
         </div>

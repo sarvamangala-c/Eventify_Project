@@ -1,11 +1,11 @@
 .contact {
   padding: 0.5rem 0;
   min-height: 100vh;
+  background-color: #fdf6f0;
 }
 
 .contact .container {
   width: 90%;
-  max-width: none;
   margin: 0 auto;
 }
 
@@ -49,9 +49,9 @@
 .contact .banner:first-child h4 {
   font-size: 1.3rem;
   margin-bottom: 0.4rem;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Dancing Script';
   color: #000;
-  font-weight: 600;
+  font-weight: 420;
 }
 
 .contact .banner:first-child p {
@@ -73,49 +73,76 @@
 
 .contact-form {
   height: 400px;
-  display: flex;
-  flex-direction: column;
+  padding: 2rem;
 }
 
-.contact-form form {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.contact form h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.contact-form h2 {
   text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  letter-spacing: 4px;
 }
 
-.contact form > div {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.contact form input,
-.contact form textarea {
+.input-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
 }
 
-.contact form textarea {
+.input-row .input-group {
   flex: 1;
-  resize: none;
 }
 
-.contact form button {
+.input-group label {
+  font-size: 16px;
+  color: #333;
+  margin-right: 10px;
+  min-width: 80px;
+}
+
+.input-group input,
+.input-group textarea {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #8b4513;
+  border-radius: 20px;
+  font-size: 14px;
+  background: transparent;
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
+}
+
+.input-group textarea {
+  resize: none;
+  min-height: 150px;
+  border-radius: 20px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: #8b4513;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s ease;
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background: #6b3410;
 }
 
 @media (max-width: 768px) {
@@ -155,10 +182,19 @@
 
   .map-container,
   .contact-form {
-    height: 300px;
+    height: auto;
   }
 
-  .contact form > div {
-    grid-template-columns: 1fr;
+  .input-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  .input-group label {
+    min-width: 70px;
   }
 }
