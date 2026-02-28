@@ -12,6 +12,8 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import UserLogin from "./components/UserLogin";
+import AdminLogin from "./components/AdminLogin";
 
 const HomePage = () => (
   <>
@@ -30,6 +32,8 @@ const App = () => {
         <Routes>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/user-login" element={<UserLogin />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
           <Route
             path="/"
             element={

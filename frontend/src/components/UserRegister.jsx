@@ -1,0 +1,36 @@
+import React, { useState } from "react";
+import axios from "axios";
+
+export default function UserRegister({ onRegister }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+    try {
+      await axios.post("http://localhost:5000/api/v1/auth/register/user", {
+        username,
+        password,
+      });
+      setSuccess("Registration successful! You can now log in.");
+      onRegister && onRegister("user");
+    } catch (err) {
+      setError(err.response?.data?.message || "Registration failed");
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>User Registration</h2>
+      <input value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
+      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
+      <button type="submit">Register as User</button>
+      {error && <div style={{color: "red"}}>{error}</div>}
+      {success && <div style={{color: "green"}}>{success}</div>}
+    </form>
+  );
+} 
