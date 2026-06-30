@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { API_URL } from "../config.js";
 import "./Contact.css";
 
 const Contact = () => {
@@ -22,7 +23,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/contact', formData);
+      await axios.post(`${API_URL}/api/v1/message/send`, formData);
       // Clear form after successful submission
       setFormData({
         name: '',

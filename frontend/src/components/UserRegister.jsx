@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config.js";
 
 export default function UserRegister({ onRegister }) {
   const [username, setUsername] = useState("");
@@ -12,7 +13,7 @@ export default function UserRegister({ onRegister }) {
     setError("");
     setSuccess("");
     try {
-      await axios.post("http://localhost:5000/api/v1/auth/register/user", {
+      await axios.post(`${API_URL}/api/v1/auth/register/user`, {
         username,
         password,
       });

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config.js";
 
 export default function ServiceList() {
   const [services, setServices] = useState([]);
@@ -9,7 +10,7 @@ export default function ServiceList() {
     const fetchServices = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/v1/services", {
+        const res = await axios.get(`${API_URL}/api/v1/services`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setServices(res.data);

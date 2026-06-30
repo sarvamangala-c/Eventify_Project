@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config.js";
 
 export default function AddService() {
   const [name, setName] = useState("");
@@ -14,7 +15,7 @@ export default function AddService() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/v1/services",
+        `${API_URL}/api/v1/services`,
         { name, description },
         { headers: { Authorization: `Bearer ${token}` } }
       );
