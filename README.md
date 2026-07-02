@@ -229,19 +229,11 @@ npm test
 
 This project is licensed under the ISC License.
 
-## 👥 Authors
-
-- **Sarvamangala M C** - Initial work
-
 ## 🙏 Acknowledgments
 
 - Vercel for hosting
 - MongoDB Atlas for database
 - React community for amazing libraries
-
-## 📞 Support
-
-For support, email sarvamangala@gmail.com or open an issue in the repository.
 
 ## 🔄 Version History
 
