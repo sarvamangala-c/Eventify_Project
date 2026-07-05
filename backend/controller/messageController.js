@@ -9,18 +9,6 @@ export const sendMessage = async (req, res) => {
         message: "All fields are required!",
       });
     }
-    
-    // Check database connection
-    if (mongoose.connection.readyState !== 1) {
-      console.log("Database not connected, attempting to reconnect...");
-      await mongoose.connect(process.env.MONGO_URI, { 
-        dbName: "EventOrganize",
-        serverSelectionTimeoutMS: 30000,
-        socketTimeoutMS: 45000,
-        connectTimeoutMS: 30000,
-      });
-    }
-    
     await Message.create({ name, email, subject, message });
     res.status(200).json({
       success: true,

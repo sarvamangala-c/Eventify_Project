@@ -22,8 +22,23 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Client-side validation
+    if (formData.name.length < 3) {
+      toast.error('Name must be at least 3 characters!');
+      return;
+    }
+    if (formData.subject.length < 5) {
+      toast.error('Subject must be at least 5 characters!');
+      return;
+    }
+    if (formData.message.length < 10) {
+      toast.error('Message must be at least 10 characters!');
+      return;
+    }
+    
     try {
-      await axios.post(`${API_URL}/api/v1/message/send`, formData);
+      const response = await axios.post(`${API_URL}/api/v1/message/send`, formData);
       // Clear form after successful submission
       setFormData({
         name: '',
@@ -33,7 +48,12 @@ const Contact = () => {
       });
       toast.success('Message sent successfully!');
     } catch (error) {
-      toast.error('Failed to send message. Please try again.');
+      console.error('Error sending message:', error);
+      if (error.response) {
+        toast.error(error.response.data.message || 'Failed to send message. Please try again.');
+      } else {
+        toast.error('Network error. Please check your connection.');
+      }
     }
   };
 
@@ -79,8 +99,9 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="form-input"
-                    placeholder="Name"
+                    placeholder="Name (min 3 characters)"
                     required
+                    minLength={3}
                   />
                 </div>
                 <div className="form-field">
@@ -107,8 +128,9 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   className="form-input"
-                  placeholder="Subject"
+                  placeholder="Subject (min 5 characters)"
                   required
+                  minLength={5}
                 />
               </div>
               
@@ -120,8 +142,9 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className="form-input"
-                  placeholder="Message"
+                  placeholder="Message (min 10 characters)"
                   required
+                  minLength={10}
                 />
               </div>
 
