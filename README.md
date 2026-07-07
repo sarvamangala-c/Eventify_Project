@@ -239,10 +239,6 @@ This project is licensed under the ISC License.
 - MongoDB Atlas for database
 - React community for amazing libraries
 
-## 📞 Support
-
-For support, email sarvamangala@gmail.com or open an issue in the repository.
-
 ## 🔄 Version History
 
 - **1.0.0** (2026-07-01)
